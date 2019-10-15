@@ -2,7 +2,10 @@
 Start long running processes and send Page Duty notifications if/when they terminate with errors. Only one process is started per lock-file.
 
 The script `once.sh` starts the chain. It has been used as:
+
+```shell
 once.sh lock-name finally.sh pager.sh clear-fixed.sh $EXECUTABLE $ARG1 $ARG2 ...
+```
 
 These scripts will try to obtain the corresponding (time-stamped) lock directory. If the lock is clear (i.e. non-existent), the executable will start, otherwise we assume that either there is a process already running or that there was an issue that still needs to be resolved. In either case, we abort and do not start any processes.
 
